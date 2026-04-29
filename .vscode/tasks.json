@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build C Core",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/c_core/build.ps1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/c_core"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Memory Leak Detector",
+            "type": "shell",
+            "command": "C:/Users/suraj/AppData/Local/Programs/Python/Python312/python.exe",
+            "args": [
+                "main.py"
+            ],
+            "dependsOn": "Build C Core",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
